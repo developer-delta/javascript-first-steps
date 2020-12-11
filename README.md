@@ -1,6 +1,6 @@
 ## This is the repository for everyone's first javascript code!
 
-![Young Anakin Skywalker flying away from an explosion and celebrating](https://lh3.googleusercontent.com/-H9w_-Y5COPo/Vn3tLaM5ThI/AAAAAAAACIo/K3PlOWYHB0M/s685-Ic42/Anakin%252520fucks%252520em%252520up.gif)
+![Young Anakin Skywalker flying away from an explosion and celebrating](https://i.imgur.com/Hz3mPZX.gif)
 
 ---
 
