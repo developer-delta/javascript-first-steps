@@ -35,4 +35,4 @@ Steps to get set up:
 
 Lastly just change the `src="` attribute to point to your `js` file. It's the same syntax as hooking up a CSS file!
 
-### _Now [back to the lesson plan](https://github.com/developer-delta/curriculum/blob/main/lesson-5-js-intro.md) to write some javascript in our new file!_
+### _Now [back to the lesson plan](https://github.com/developer-delta/curriculum/blob/main/lesson-5-js-intro.md#getting-started) to write some javascript in our new file!_
