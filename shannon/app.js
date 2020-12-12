@@ -1,87 +1,71 @@
-console.log("hiya!");
-console.log("kewlllll")
-console.log(3 + 1);
-
-let clickCountNum = 0;
+let clickCount = 0;
 let mealNum = 0;
-let clickMessage = "";
-let mealMessage = "";
-let color = 0;
-const bubbleColors = ['pink', 'blue', 'red', 'green', 'yellow', 'orange', 'purple', 'lime'];
 
-const hobbit = {
-  meals: ['breakfast',
-    'second breakfast',
-    'elevenses',
-    'lunch',
-    'afternoon tea',
-    'dinner',
-    'supper'
-  ],
-  time: ['7:00 am',
-    '9:00am',
-    '11:00am',
-    '1:00pm',
-    '3:00pm',
-    '5:00pm',
-    '7:00pm'
-  ]
-};
+const hobbitMeals = [
+  { meal: 'Breakfast', time: '07:00am' },
+  { meal: 'Second breakfast', time: '09:00am' },
+  { meal: 'Elevenses', time: '11:00am' },
+  { meal: 'Luncheon', time: '01:00pm' },
+  { meal: 'Afternoon tea', time: '03:00pm' },
+  { meal: 'Dinner', time: '05:00pm' },
+  { meal: 'Supper', time: '07:00pm' },
+]
 
-let currentMeal = hobbit.meals[mealNum];
-let currentMealTime = hobbit.meals[mealNum];
-
-const clickMessaging = {
-  10: "You are great at clicking",
-  20: "Keep onnn clicking!",
-  30: "Click awayyyy",
-  40: "You're on a roll!",
-  50: "wow, that is too many clicks! Lets start over!"
+function getClickMessaging(clickCount) {
+  switch (clickCount) {
+    case 10:
+      return "You are great at clicking"
+    case 20:
+      return "Keep onnn clicking!"
+    case 30:
+      return "Click awayyyy"
+    case 40:
+      return "You're on a roll!"
+    case 50:
+      return "wow, that is too many clicks! Lets start over!"
+    default:
+      return ""
+  }
 }
 
-function getCurrentMeal() {
-  return hobbit.meals[mealNum];
+function getMealMessaging(mealNum) {
+  switch (mealNum) {
+    case 2:
+      return "What about elevenses?"
+    case 4:
+      return "Care for a spot of tea?"
+    case 6:
+      return "You've had all your hobbit meals for today! Start again tomorrow!"
+    default:
+      return ""
+  }
 }
 
-function getCurrentMealTime() {
-  return hobbit.time[mealNum]
-}
-
-function getClickMessage() {
-  return clickMessage;
-}
-
-function getMealMessage() {
-  return mealMessage;
-}
-
+// This method updates the current meal and then reflects the change in the DOM
 function nextMeal() {
   mealNum === 6 ? mealNum = 0 : mealNum++;
-  document.querySelector('#meal').innerHTML = getCurrentMeal();
-  document.querySelector('#time').innerHTML = getCurrentMealTime();
-  document.querySelector('#mealMessage').innerHTML = mealNum === 6 ? "You've had all your hobbit meals for today! Start again tomorrow!" : "";
+  document.querySelector('#meal').innerHTML = hobbitMeals[mealNum].meal;
+  document.querySelector('#time').innerHTML = hobbitMeals[mealNum].time;
+  document.querySelector('#mealMessage').innerHTML = getMealMessaging(mealNum);
 }
 
+//This method increments the clickCount and adds bubbles up to a count of 50
 function clicky() {
-  if (clickCountNum === 50) deleteBubbles();
-  clickCountNum < 50 ? clickCountNum++ : clickCountNum = 0
-  if (clickCountNum > 0) addBubble();
-  document.querySelector('#clickCount').innerHTML = clickCount();
-  if (Object.keys(clickMessaging).includes(clickCountNum.toString())) clickMessage = clickMessaging[clickCountNum];
-  else clickMessage = "";
-  document.querySelector('#clickMessage').innerHTML = getClickMessage();
+  if (clickCount === 50) {
+    deleteBubbles();
+    clickCount = 0
+  } else {
+    clickCount++;
+    addBubble();
+  }
+  document.querySelector('#clickCount').innerHTML = clickCount;
+  document.querySelector('#clickMessage').innerHTML = getClickMessaging(clickCount);
 }
 
-function clickCount() {
-  return clickCountNum;
-}
-
-document.querySelector('#clickCount').innerHTML = clickCount();
-document.querySelector('#meal').innerHTML = getCurrentMeal();
-document.querySelector('#time').innerHTML = getCurrentMealTime();
-
-
+// this was a quick attempt to add variation to the bubble animation patterns and colors
+let color = 0;
 let currentBubbleClass = 0;
+const bubbleColors = ['pink', 'blue', 'red', 'green', 'yellow', 'orange', 'purple', 'lime'];
 const bubbleClasses = [
   ['x', 'y'],
   ['z', 'w'],
@@ -89,11 +73,10 @@ const bubbleClasses = [
   ['z', 'y']
 ]
 
-
 function addBubble() {
   var div = document.createElement('div');
-  div.className = `bubble ${bubbleClasses[currentBubbleClass][0]}`;
-  div.innerHTML = `<div class="${bubbleClasses[currentBubbleClass][1]} bubble-structure ${bubbleColors[color]}"></div>`;
+  div.className = `bubble-container ${bubbleClasses[currentBubbleClass][0]}`;
+  div.innerHTML = `<div class="bubble ${bubbleClasses[currentBubbleClass][1]} ${bubbleColors[color]}"></div>`;
   document.body.appendChild(div);
   currentBubbleClass < 3 ? currentBubbleClass++ : currentBubbleClass = 0;
   color <= 7 ? color++ : color = 0;
@@ -105,4 +88,8 @@ function deleteBubbles() {
 }
 
 
+// initializing what is displayed on intial page load in the DOM
+document.querySelector('#clickCount').innerHTML = clickCount;
+document.querySelector('#meal').innerHTML = hobbitMeals[mealNum].meal;
+document.querySelector('#time').innerHTML = hobbitMeals[mealNum].time;
 alert("Welcome!");
