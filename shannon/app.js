@@ -79,11 +79,11 @@ function addBubble() {
   div.innerHTML = `<div class="bubble ${bubbleClasses[currentBubbleClass][1]} ${bubbleColors[color]}"></div>`;
   document.body.appendChild(div);
   currentBubbleClass < 3 ? currentBubbleClass++ : currentBubbleClass = 0;
-  color <= 7 ? color++ : color = 0;
+  color < 7 ? color++ : color = 0;
 }
 
 function deleteBubbles() {
-  var bubbles = document.body.querySelectorAll(".bubble");
+  var bubbles = document.body.querySelectorAll(".bubble-container");
   bubbles.forEach(bubble => bubble.remove());
 }
 
