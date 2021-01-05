@@ -4,7 +4,7 @@
 
 ---
 
-Steps to get set up:
+## To follow along:
 
 * `cd` into a directory for all your programming work
 * `git clone https://github.com/developer-delta/javascript-first-steps.git`
@@ -14,8 +14,6 @@ Steps to get set up:
 * `cd your-name`
 * `touch app.js` This is your javascript file!
 * `touch index.html`
-
----
 
 > Please follow the structure of creating a new directory with your name, and then inside of that, add an `app.js` file and an `index.html` file. Feel free to copy this HTML code into `index.html` since we'll be focusing on JavaScript in this lesson.
 
@@ -33,6 +31,12 @@ Steps to get set up:
 </html>
 ```
 
-Lastly just change the `src="` attribute to point to your `js` file. It's the same syntax as hooking up a CSS file!
+* Lastly just change the `src="` attribute to point to your `js` file. It's the same syntax as hooking up a CSS file!
 
-### _Now [back to the lesson plan](https://github.com/developer-delta/curriculum/blob/main/lesson-5-js-intro.md#getting-started) to write some javascript in our new file!_
+---
+
+## Homework
+* Open up the `example.js` file.
+* Copy it's contents into the directory with your name you created for following along.
+* Follow the instructions in that file from top to bottom. Make sure to reference the lesson we just went over to help you out when you forget syntax.
+* When you're done, go ahead and `branch` and submit a pull request so we can see each others work!
